@@ -24,6 +24,8 @@
                                 <field name="user_ids"/>
                                 <field name="tag_ids"/>
                                 <field name="stage_id"/>
+
+
                             </list>
                         </field>
                     </page>
