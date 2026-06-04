@@ -39,7 +39,7 @@
             <field name="inherit_id" ref="crm.crm_case_tree_view_oppor"/>
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='contact_name']" position="after">
-                    <field name="example_text"/>
+                    <field name="task_ids"/>
                 </xpath>
             </field>
         </record>
