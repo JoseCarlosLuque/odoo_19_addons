@@ -1,22 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
-        <record id="action_custom_crm_tasks" model="ir.actions.act_window">
+        <!--ALL CUSTOM TASKS:-->
+
+        <record id="action_custom_tasks_all" model="ir.actions.act_window">
             <field name="name">action.custom.crm.tasks</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">project.task</field>
             <field name="view_mode">list,form</field>
+            <!-- No se le pone domain para que muestre todas -->
         </record>
+
+        <!-- Custom tasks del CRM -->
 
         <record id="view_custom_task_crm_list" model="ir.ui.view">
             <field name="name">view.custom.task.crm.list</field>
             <field name="model">project.task</field>
             <field name="arch" type="xml">
                 <list string="Tareas del crm">
+                    <field name="crm_lead_id" string="Tarea de: "/>
                     <field name="name"/>
+                    <field name="project_id"/>
+                    <field name="user_ids" widget="many2many_avatar_user"/>
+                    <field name="stage_id"/>
+                    <field name="date_deadline"/>
+                    <field name="priority"/>
+                    <field name="tag_ids" widget="many2many_tags"/>
                 </list>
             </field>
         </record>
+            <record id="view_custom_task_crm_search" model="ir.ui.view">
+            <field name="name">view.custom.task.crm.search</field>
+            <field name="model">project.task</field>
+            <field name="arch" type="xml">
+                <search string="Buscar tareas de CRM">
+                    <field name="name"/>
+                    <field name="crm_lead_id"/>
+                    <field name="project_id"/>
+                    <field name="user_ids"/>
+                    <separator/>
+                    <!-- Para filtrar por las tareas del usuario -->
+                    <filter string="Mis Tareas" name="my_tasks"
+                            domain="[('user_ids', 'in', [uid])]"/>
+                    <separator/>
+                    <group expand="1" string="Agrupar por">
+                        <filter string="Oportunidad" name="group_by_lead"
+                                context="{'group_by': 'crm_lead_id'}"/>
+                        <filter string="Proyecto" name="group_by_project"
+                                context="{'group_by': 'project_id'}"/>
+                        <filter string="Etapa" name="group_by_stage"
+                                context="{'group_by': 'stage_id'}"/>
+                        <filter string="Responsable" name="group_by_user"
+                                context="{'group_by': 'user_ids'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+        <record id="action_custom_task_crm" model="ir.actions.act_window">
+            <field name="name">action.custom.task.crm</field>
+            <field name="res_model">project.task</field>
+            <field name="view_mode">list,form</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_id" ref="view_custom_task_crm_list"/>
+            <field name="search_view_id" ref="view_custom_task_crm_search"/>
+            <field name="domain">[('crm_lead_id', '!=', False )]</field>
+        </record>
+
+
+        <!-- Custom Task de Ventas -->
+
 
     </data>
 </odoo>
