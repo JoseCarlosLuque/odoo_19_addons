@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="action_custom_crm_tasks" model="ir.actions.act_window">
+            <field name="name">action.custom.crm.tasks</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">project.task</field>
+            <field name="view_mode">list,form</field>
+        </record>
+
+        <record id="view_custom_task_crm_list" model="ir.ui.view">
+            <field name="name">view.custom.task.crm.list</field>
+            <field name="model">project.task</field>
+            <field name="arch" type="xml">
+                <list string="Tareas del crm">
+                    <field name="name"/>
+                </list>
+            </field>
+        </record>
+
+    </data>
+</odoo>

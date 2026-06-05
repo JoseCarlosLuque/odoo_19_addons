@@ -9,11 +9,11 @@
             <field name="arch" type="xml">
 
                 <xpath expr="//header" position="inside">
-                    <button name="create_task" string="Crear Tarea" type="object"/>
+                    <button class="btn-secondary" name="create_task" string="Crear Tarea" type="object" />
                 </xpath>
 
 <!--                <xpath expr="//field[@name='phone']" position="after">-->
-<!--                    <field name="task_ids" widget="many2many_tags" />-->
+<!--                    <field name="task_ids" widget="many2many_tags" oe_highlight />-->
 <!--                </xpath>-->
 
                 <xpath expr="//notebook/page[@name='lead']" position="after">

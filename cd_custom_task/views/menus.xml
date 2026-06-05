@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+    <menuitem id="cd_custom_task_root"
+              name="Tareas Custom"
+              sequence="10"/>
+
+    <menuitem id="cd_custom_task_crm"
+              name="Tareas CRM"
+              parent="cd_custom_task_root"
+              action="action_custom_crm_tasks"
+              sequence="10"/>
+
+</odoo>
