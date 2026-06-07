@@ -69,6 +69,24 @@
 
         <!-- Custom Task de Ventas -->
 
+        <record id="view_custom_task_sales_search" model="ir.ui.view">
+           <field name="name">view.custom.task.sales.search</field>
+           <field name="model">project.task</field>
+            <field name="arch" type="xml">
+                <search string="Buscar tareas de Ventas">
+              <field name="name" string="string" domain="[()]"/>
+            </search>
+           </field>
+        </record>
+
+
+
+        <record id="action_custom_task_sales" model="ir.actions.act_window">
+            <field name="name">action.custom.task.sales</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">project.task</field>
+            <field name="view_mode">list,form</field>
+        </record>
 
     </data>
 </odoo>
