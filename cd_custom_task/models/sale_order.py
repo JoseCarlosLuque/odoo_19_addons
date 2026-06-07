@@ -5,7 +5,7 @@ class SaleOrder(models.Model):
     _inherit = 'sale.order'
     _description = 'Sale Order'
 
-    tasks_ids = fields.One2many(
+    task_ids = fields.One2many(
         'project.task',
         'sale_order_id',
         string='Tareas de Venta',
@@ -15,7 +15,7 @@ class SaleOrder(models.Model):
         # Crear el contexto:
         ctx = dict(self.env.context , **{
             'default_partner_id': self.partner_id.id,
-            'default_tasks_ids': self.id
+            'default_sale_order_id': self.id,
         })
 
         return {
