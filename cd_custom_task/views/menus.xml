@@ -5,7 +5,6 @@
               name="Tareas Custom"
               sequence="10"/>
 
-    <!-- This Menu Item must have a parent and an action -->
     <menuitem id="cd_custom_task_all"
               name="Todas las Tareas"
               parent="cd_custom_task_root"
@@ -18,7 +17,6 @@
               action="action_custom_task_crm"
               sequence="20"/>
 
-    <!-- This Menu Item must have a parent and an action -->
     <menuitem id="cd_custom_task_sales"
               name="Tareas Ventas"
               parent="cd_custom_task_root"

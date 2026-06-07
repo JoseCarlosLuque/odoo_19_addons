@@ -9,5 +9,8 @@ class ProjectTask(models.Model):
         'crm.lead',
         string='Tarea del lead',
     )
-
+    sale_order_id = fields.Many2one(
+        'sale.order',
+        string='Tarea de ventas',
+    )
 
