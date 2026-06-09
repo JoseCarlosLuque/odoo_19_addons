@@ -17,7 +17,7 @@ class SaleOrder(models.Model):
             'default_partner_id': self.partner_id.id,
             'default_tasks_ids': self.id
         })
-
+        print("Hola hola")
         return {
             'name': ("Tarea de " + str(self.name)),
             'type': 'ir.actions.act_window',
