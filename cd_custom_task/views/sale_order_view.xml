@@ -1,6 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
+        <!-- Inherit Form View to Modify it -->
+        <record id="cd_custom_task_sale_form" model="ir.ui.view">
+            <field name="name">cd.custom.task.sale.form</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
 
+                <xpath expr="//header" position="inside">
+                    <button class="btn-secondary" name="create_task" string="Crear Tarea" type="object" />
+                </xpath>
+                <xpath expr="//notebook" position="inside">
+                    <page name="associated_tasks" string="Tareas Asociadas">
+                        <field name="task_ids"  options="{'no_create': True, 'no_create_edit': True, 'no_open': True}">  <!-- Para que solo se cree desde el botón.-->
+                            <list string="Tareas" create="0" delete="0">
+                                <field name="name"/>
+                                <field name="user_ids"/>
+                                <field name="tag_ids"/>
+                                <field name="stage_id"/>
+
+
+                            </list>
+                        </field>
+                    </page>
+                </xpath>
+
+            </field>
+        </record>
+
+        <record id="cd_custom_task_sale_list" model="ir.ui.view">
+            <field name="name">cd.custom.task.sale.list</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_quotation_tree_with_onboarding"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='partner_id']" position="after">
+                    <field name="task_ids"/>
+                </xpath>
+            </field>
+        </record>
     </data>
 </odoo>
