@@ -6,11 +6,17 @@ class ProjectTask(models.Model):
     _description = 'project task'
 
     crm_lead_id = fields.Many2one(
-        'crm.lead',
+        comodel_name='crm.lead',
         string='Tarea del lead',
+        index=True,
+        ondelete='set null',
+        tracking=True,
     )
     sale_order_id = fields.Many2one(
-        'sale.order',
+        comodel_name='sale.order',
         string='Tarea de ventas',
+        index=True,
+        ondelete='set null',
+        tracking=True,
     )
 
