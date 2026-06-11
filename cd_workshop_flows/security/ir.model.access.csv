@@ -1,2 +1,2 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_cd_workshop_flows_cd_workshop_flows,cd_workshop_flows.cd_workshop_flows,model_cd_workshop_flows_cd_workshop_flows,base.group_user,1,1,1,1
+access_custom_board_wizard,access.custom.board.wizard,model_custom_board_wizard,base.group_user,1,1,1,1

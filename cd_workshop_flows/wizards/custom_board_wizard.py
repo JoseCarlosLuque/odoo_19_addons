@@ -6,7 +6,6 @@ class CustomBoardWizard(models.TransientModel):
     _description = 'Custom Board Wizard'
 
     # TODO: Establecer seguridad para que no se pueda añadir un producto incorrecto.
-    purchase_id = fields.Many2one()
     product_id = fields.Many2one('product.product', string='Producto', required=True)
     board_format = fields.Selection([
         ('244x122', '2440 x 1220 mm'),
@@ -41,6 +40,25 @@ class CustomBoardWizard(models.TransientModel):
 
     def action_generate_line(self):
         for record in self:
-            print("Chinguin Chinguito..........................OOOOOOOOOOOOOOOOOO")
+            purchase_id = self.env.context.get('active_id')
 
+            active_purchase =  self.env['purchase.order'].browse(purchase_id)
+            sqr_metres = record.units * record.board_conversion
+
+            line_vals = {
+                'order_id': active_purchase.id,
+                'product_id': record.product_id.id,
+                'product_qty': sqr_metres,
+                'product_uom_id': self.product_id.uom_id.id,
+            }
+
+            self.env['purchase.order.line'].create(line_vals)
+
+            return {
+                'type': 'ir.actions.act_window',
+                'res_model': 'purchase.order',
+                'res_id': purchase_id,
+                'view_mode': 'form',
+                'target': 'current',
+            }
 

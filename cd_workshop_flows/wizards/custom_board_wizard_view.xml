@@ -14,8 +14,8 @@
                             <field name="board_conversion" readonly="True"/>
                         </group>
                         <footer>
-                            <button name="action_generate_line" string="GENERAR LINEA" confirm="¿Está seguro de que los datos son correctos?"/>
-                            <button name="action_cancel" string="CANCELAR"/>
+                            <button name="action_generate_line" type="object" string="GENERAR LINEA" confirm="¿Está seguro de que los datos son correctos?"/>
+                            <button special="cancel" string="CANCELAR" class="btn-danger"/>
                         </footer>
                     </sheet>
                 </form>
@@ -26,7 +26,6 @@
             <field name="name">action.custom.board.wizard</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">custom.board.wizard</field>
-            <field name="view_id">custom_board_wizard_form</field>
             <field name="view_mode">form</field>
         </record>
     </data>

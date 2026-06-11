@@ -20,9 +20,9 @@ as any business that needs to handle custom work.
     'depends': ['base', 'purchase'],
 
     'data': [
-        # 'security/ir.model.access.csv',
+        'security/ir.model.access.csv',
         'views/purchase_order_view.xml',
-        'wizard/custom_board_wizard_view.xml'
+        'wizards/custom_board_wizard_view.xml'
     ],
 }
 
