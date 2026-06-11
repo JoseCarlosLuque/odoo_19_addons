@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="custom_board_wizard_form" model="ir.ui.view">
+            <field name="name">custom_board_wizard_form</field>
+            <field name="model">custom.board.wizard</field>
+            <field name="arch" type="xml">
+                <form string="_form">
+                    <sheet>
+                        <group>
+                            <field name="product_id"/>
+                            <field name="board_format"/>
+                            <field name="units"/>
+                            <field name="board_conversion" readonly="True"/>
+                        </group>
+                        <footer>
+                            <button name="action_generate_line" string="GENERAR LINEA" confirm="¿Está seguro de que los datos son correctos?"/>
+                            <button name="action_cancel" string="CANCELAR"/>
+                        </footer>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_custom_board_wizard" model="ir.actions.act_window">
+            <field name="name">action.custom.board.wizard</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">custom.board.wizard</field>
+            <field name="view_id">custom_board_wizard_form</field>
+            <field name="view_mode">form</field>
+        </record>
+    </data>
+</odoo>

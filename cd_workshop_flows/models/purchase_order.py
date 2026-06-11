@@ -7,7 +7,15 @@ class PurchaseOrder(models.Model):
 
 
     def action_add_factory_boards(self):
-        for record in self:
-            print("Adding Purchase Order record")
+        self.ensure_one()
+
+        return {
+            'name': 'Seleccionar Tipo de Tablero',
+            'type': 'ir.actions.act_window',
+            'res_model': 'custom.board.wizard',
+            'view_mode': 'form',
+            'target': 'new',
+            'context': {'default_purchase_id': self.id}
+        }
 
 

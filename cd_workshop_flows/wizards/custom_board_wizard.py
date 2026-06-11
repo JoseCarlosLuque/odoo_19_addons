@@ -6,6 +6,7 @@ class CustomBoardWizard(models.TransientModel):
     _description = 'Custom Board Wizard'
 
     # TODO: Establecer seguridad para que no se pueda añadir un producto incorrecto.
+    purchase_id = fields.Many2one()
     product_id = fields.Many2one('product.product', string='Producto', required=True)
     board_format = fields.Selection([
         ('244x122', '2440 x 1220 mm'),
@@ -14,6 +15,7 @@ class CustomBoardWizard(models.TransientModel):
         ('366x122', '3660 x 1220 mm'),
         ('305x122', '3050 x 1220 mm'),
     ],
+        string='Formato del tablero',
         help="Seleccione el tamaño de los tableros",
         required=True
     )
@@ -37,5 +39,8 @@ class CustomBoardWizard(models.TransientModel):
             else:
                 record.board_conversion = 0.0
 
+    def action_generate_line(self):
+        for record in self:
+            print("Chinguin Chinguito..........................OOOOOOOOOOOOOOOOOO")
 
 
