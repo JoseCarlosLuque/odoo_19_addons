@@ -1,5 +1,5 @@
 from odoo import fields, models, api
-
+from odoo.exceptions import UserError
 
 class CustomBoardWizard(models.TransientModel):
     _name = 'custom.board.wizard'
@@ -40,6 +40,11 @@ class CustomBoardWizard(models.TransientModel):
 
     def action_generate_line(self):
         for record in self:
+
+            if record.product_id.uom_id.name != 'm²':
+                raise UserError('Debe seleccionar un producto valido!'
+                                '')
+
             purchase_id = self.env.context.get('active_id')
 
             active_purchase =  self.env['purchase.order'].browse(purchase_id)
