@@ -9,8 +9,8 @@
                     <sheet>
                         <group>
                             <field name="name"/>
-                            <field name="width_m"/>
-                            <field name="heigh_m"/>
+                            <field name="width_m" string="Ancho en Metros"/>
+                            <field name="heigh_m" string="Alto en Metros"/>
                             <field name="area_m2"/>
                         </group>
                     </sheet>
