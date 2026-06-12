@@ -22,7 +22,8 @@ as any business that needs to handle custom work.
     'data': [
         'security/ir.model.access.csv',
         'views/purchase_order_view.xml',
-        'wizards/custom_board_wizard_view.xml'
+        'wizards/custom_board_wizard_view.xml',
+        'views/board_format_view.xml',
     ],
 }
 

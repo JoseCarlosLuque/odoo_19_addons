@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="cd_workshop_flows_board_format_form" model="ir.ui.view">
+            <field name="name">cd.workshop.flows.board.format.form</field>
+            <field name="model">board.format</field>
+            <field name="arch" type="xml">
+                <form string="Formulario board format">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="width_m"/>
+                            <field name="heigh_m"/>
+                            <field name="area_m2"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>
