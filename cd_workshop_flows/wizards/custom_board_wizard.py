@@ -20,7 +20,7 @@ class CustomBoardWizard(models.TransientModel):
 
     def action_generate_line(self):
         for record in self:
-
+            print("El valor ess...")
             if record.product_id.uom_id.name != 'm²':
                 raise UserError('Debe seleccionar un producto valido!'
                                 '')
