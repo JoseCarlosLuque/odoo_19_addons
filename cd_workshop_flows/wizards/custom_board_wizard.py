@@ -43,7 +43,7 @@ class CustomBoardWizard(models.TransientModel):
                 'type': 'ir.actions.act_window',
                 'res_model': 'purchase.order',
                 'res_id': purchase_id,
-                'view_mode': 'form',
+                'view_mode': 'form', # Para que se vea el form
                 'target': 'current',
             }
 
