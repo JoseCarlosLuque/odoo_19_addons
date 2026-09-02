@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="cd_loan_view_tree" model="ir.ui.view">
+            <field name="name">cd_loan_view_tree</field>
+            <field name="model">cd.loan</field>
+            <field name="arch" type="xml">
+                <list string="Lista de préstamos">
+                    <field name="name"/>
+                    <field name="state"/>
+                    <field name="client_id"/>
+                    <field name="loan_amount"/>
+                    <field name="number_quotas"/>
+                    <field name="interest_rate"/>
+                    <field name="curency_id" column_invisible="1" invisible="1"/>
+                </list>
+            </field>
+        </record>
+
+        <record id="cd_loan_view_form" model="ir.ui.view">
+            <field name="name">cd.loan.view.form</field>
+            <field name="model">cd.loan</field>
+            <field name="arch" type="xml">
+                <form string="Loan">
+                    <header>
+                        <!-- Aquí van los botones para iniciar cancelar... -->
+                        <button name="action_confirm_loan" type="object" string="Confirmar"/>
+                        <button name="action_finish_loan" type="object" string="terminar" invisible="state == 'draft'"/>
+                        <button name="action_cancel_loan" type="object" string="Cancelar" invisible="state == 'draft'"/>
+                        <field name="status" widget="statusbar" statusbar_duration="1"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="client_id"/>
+                            <field name="loan_amount"/>
+                            <field name="number_quotas"/>
+                            <field name="interest_rate"/>
+                            <field name="curency_id"/>
+                        </group>
+                        <notebook>
+                            <page id="loan_lines" name="Cuotas">
+                                <field name="cd_loan_lines_ids">
+                                    <list>
+                                        <field name="name"/>
+                                        <field name="total_amount"/>
+                                        <field name="date"/>
+                                    </list>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="cd_loan_form_action" model="ir.actions.act_window">
+            <field name="name">Formulario</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">cd.loan</field>
+            <field view_id="cd_loan_view_form"/>
+            <field name="view_mode">form</field>
+        </record>
+
+        <record id="cd_loan_list_action" model="ir.actions.act_window">
+            <field name="name">Lista Prestamos</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">cd.loan</field>
+            <field name="view_mode">tree</field>
+        </record>
+    </data>
+</odoo>

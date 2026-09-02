@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Root -->
+    <menuitem id="cd_loan_management_root"
+              name="Préstamos"
+              sequence="1"/>
+
+    <!-- Sub-menu para los préstamos -->
+    <menuitem id="cd_loan_management_loans"
+              name="Préstamos"
+              action="action_cd_loan_management_view_loans"
+              parent="cd_loan_management_root"
+              sequence="10"/>
+
+    <!-- Sub-menu para la configuración del módulo -->
+    <menuitem id="cd_loan_management_config"
+              name="Configuración"
+              parent="cd_loan_management_root"
+              sequence="20"/>
+
+</odoo>
