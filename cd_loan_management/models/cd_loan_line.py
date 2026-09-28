@@ -11,3 +11,5 @@ class CdLoanLine(models.Model):
     interest = fields.Monetary(string='Interest')
     date = fields.Date(string='Fecha de pago')
     number = fields.Char(string='Nombre de loan')
+    cd_loan_id = fields.Many2one('cd.loan', string='CD Loan')
+

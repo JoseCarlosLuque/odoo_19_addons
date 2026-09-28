@@ -8,7 +8,7 @@
     <!-- Sub-menu para los préstamos -->
     <menuitem id="cd_loan_management_loans"
               name="Préstamos"
-              action="action_cd_loan_management_view_loans"
+              action="cd_loan_list_action"
               parent="cd_loan_management_root"
               sequence="10"/>
 
@@ -17,5 +17,4 @@
               name="Configuración"
               parent="cd_loan_management_root"
               sequence="20"/>
-
 </odoo>
